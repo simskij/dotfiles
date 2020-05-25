@@ -1,0 +1,105 @@
+{
+  "window.zoomLevel": 1,
+  "extensions.autoUpdate": true,
+  // Editor
+  "editor.fontFamily": "Fira Code",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 12,
+  "editor.minimap.enabled": false,
+  "editor.formatOnSave": true,
+  "editor.tokenColorCustomizations": {},
+  "editor.rulers": [100],
+  // Telemetry
+  "telemetry.enableTelemetry": false,
+  "telemetry.enableCrashReporter": false,
+  // Workbench
+  "workbench.iconTheme": "material-icon-theme",
+  "customizeUI.activityBar": "bottom",
+  "customizeUI.titleBar": "inline",
+  // Theming
+  "workbench.colorCustomizations": {
+    "window.activeBorder": "#2C3746",
+    "window.inactiveBorder": "#2C3746",
+    "sideBar.background": "#2C3746",
+    "menu.background": "#2C3746",
+    "panel.background": "#2C3746",
+    "editorPane.background": "#2C3746",
+    "editor.background": "#2C3746",
+    "editorGutter.background": "#2C3746",
+    "terminal.background": "#2C3746",
+    "tab.inactiveBackground": "#2C3746",
+    "titleBar.inactiveBackground": "#2C3746",
+    "button.background": "#2C3746",
+    "sideBarSectionHeader.background": "#2C3746",
+    "titleBar.activeBackground": "#2C3746",
+    "activityBar.background": "#2C3746",
+    "editorGroupHeader.tabsBackground": "#2C3746",
+    "statusBar.background": "#2C3746",
+    "statusBar.noFolderBackground": "#2C3746",
+    "sideBar.border": "#2C3746",
+    "editor.lineHighlightBackground": "#2C3746",
+    "editor.selectionBackground": "#4b596c"
+  },
+  "materialTheme.accent": "Cyan",
+  // GPM
+  "gitProjectManager.baseProjectsFolders": ["~/code"],
+  // Formatters
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[go]": {
+    "editor.defaultFormatter": "ms-vscode.Go"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  // Files
+  "files.associations": {
+    "Brewfile": "ruby"
+  },
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/.idea": true
+  },
+  // Integrated Terminal
+  "terminal.integrated.shell.osx": "/bin/zsh",
+  "terminal.integrated.fontFamily": "FiraMono Nerd Font",
+  // Go
+  "go.formatTool": "goimports",
+  "go.useLanguageServer": true,
+  "go.languageServerExperimentalFeatures": {
+    "diagnostics": true
+  },
+  // Zen Mode
+  "zenMode.fullScreen": true,
+  "zenMode.hideLineNumbers": false,
+  "zenMode.silentNotifications": true,
+  "zenMode.hideActivityBar": false,
+  "zenMode.centerLayout": true,
+  "zenMode.hideStatusBar": false,
+  "zenMode.hideTabs": false,
+  "zenMode.restore": false,
+  "material-icon-theme.folders.color": "#90a4ae",
+  "editor.tabSize": 2,
+  "prettier.singleQuote": true
+
+  // Only for streaming
+  // "editor.cursorBlinking": "solid",
+  // "editor.quickSuggestions": false,
+  // "editor.parameterHints": false,
+  // "window.titleBarStyle": "native",
+  // "explorer.confirmDelete": false
+}

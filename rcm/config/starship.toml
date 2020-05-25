@@ -1,0 +1,37 @@
+add_newline = true
+
+[git_branch]
+symbol = "🌱 "
+
+[git_commit]
+disabled = false
+prefix = ""
+suffix = " "
+style = "white"
+commit_hash_length = 4
+
+[git_status]
+prefix = "("
+suffix = ") "
+untracked.value = "●"
+untracked.style = "dimmed"
+stashed = ""
+modified.value = "●"
+modified.style = "bright-blue"
+staged.value = "●"
+staged.style = "bright-green"
+renamed.value = "●"
+renamed.style = "cyan"
+deleted.value = "●"
+deleted.style = "bright-red"
+
+[nodejs]
+style = "bright-blue"
+symbol = "  "
+
+[golang]
+symbol = " "
+style = "bold cyan"
+
+[package]
+disabled = true
