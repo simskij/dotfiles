@@ -23,6 +23,7 @@ Plugin 'prettier/prettier'
 Plugin 'tpope/vim-fugitive'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mattn/emmet-vim'
+Plugin 'JamshedVesuna/vim-markdown-preview'
 
 call vundle#end()
 filetype plugin indent on
@@ -32,7 +33,7 @@ filetype plugin indent on
 " ---
 
 let mapleader = ","
-
+set mouse=a
 " Emojis
 " ---
 if emoji#available()

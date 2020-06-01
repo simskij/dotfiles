@@ -1,0 +1,12 @@
+ctrl + alt + cmd - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
+
+cmd - return : /Applications/iTerm.app/Contents/MacOS/iTerm3
+
+ctrl + shift - k : yabai -m window --swap next 
+ctrl + shift - j : yabai -m window --swap prev
+ctrl + shift - h : yabai -m window --focus prev
+ctrl + shift - l : yabai -m window --focus next
+ctrl + alt - h   : yabai -m space --move prev
+ctrl + alt - l   : yabai -m space --move next
+ctrl + shift - n : yabai -m space --create
+ctrl + shift - w : yabai -m space --destroy

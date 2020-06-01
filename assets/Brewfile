@@ -5,6 +5,8 @@ tap 'homebrew/cask-fonts'
 
 cask_args appdir: '/Applications'
 
+brew 'grip'
+brew 'fontforge'
 brew 'asciinema'
 brew 'cjbassi/ytop/ytop'
 brew 'cowsay'
@@ -32,7 +34,8 @@ brew 'vifm'
 brew 'vim'
 brew 'wget'
 brew 'zsh'
- 
+brew 'koekeishiya/formulae/yabai'
+brew 'koekeishiya/formulae/skhd'
 cask '1password'
 cask 'alfred'
 cask 'amethyst'
@@ -56,6 +59,7 @@ cask 'slack'
 cask 'spotify'
 cask 'steam'
 cask 'visual-studio-code'
+cask 'omnidisksweeper'
 
 mas 'Tweetdeck', id: 485812721
 mas 'Easyres', id: 688211836
