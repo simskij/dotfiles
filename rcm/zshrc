@@ -6,7 +6,7 @@ export TERM='xterm-256color'
 
 source $ZSH/oh-my-zsh.sh
 
-ssh-add -K ~/.ssh/id_rs
+ssh-add -K ~/.ssh/id_rsa
 
 typeset -U config_files
 config_files=(~/.zsh/*.zsh)
