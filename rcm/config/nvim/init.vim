@@ -1,31 +1,30 @@
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
 
-" Plugins
-" ---
+call plug#begin('~/.vim/plugged')
 
-Plugin 'moll/vim-node'
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'fatih/vim-go'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'junegunn/vim-emoji'
-Plugin 'haya14busa/vim-keeppad'
-Plugin 'scrooloose/nerdtree'
-Plugin 'connorholyday/vim-snazzy'
-Plugin 'arcticicestudio/nord-vim'
-Plugin 'mhinz/vim-startify'
-Plugin 'rhysd/git-messenger.vim'
-Plugin 'prettier/prettier'
-Plugin 'tpope/vim-fugitive'
-Plugin 'kien/ctrlp.vim'
-Plugin 'mattn/emmet-vim'
-Plugin 'JamshedVesuna/vim-markdown-preview'
+Plug 'moll/vim-node'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
-call vundle#end()
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries', 'for': ['go', 'markdown'] }
+
+Plug 'airblade/vim-gitgutter'
+Plug 'junegunn/vim-emoji'
+Plug 'haya14busa/vim-keeppad'
+Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle'] }
+Plug 'connorholyday/vim-snazzy'
+Plug 'arcticicestudio/nord-vim'
+Plug 'mhinz/vim-startify'
+Plug 'rhysd/git-messenger.vim'
+Plug 'prettier/prettier'
+Plug 'tpope/vim-fugitive'
+Plug 'kien/ctrlp.vim', {'on': ['CtrlP', 'CtrlPMixed', 'CtrlPMRU']}
+Plug 'mattn/emmet-vim'
+Plug 'JamshedVesuna/vim-markdown-preview', {'for': ['markdown']}
+  
+call plug#end()
+
 filetype plugin indent on
 
 
@@ -45,6 +44,9 @@ endif
 
 set number
 
+nnoremap <leader>f :CtrlP<CR>
+nnoremap <leader>m :CtrlPMixed<CR>
+nnoremap <leader>r :CtrlPMRU<CR>
 
 map <leader>t :NERDTreeToggle<CR>
 autocmd StdinReadPre * let s:std_in=1
@@ -69,9 +71,15 @@ hi Normal guibg=NONE ctermbg=NONE
 highlight VertSplit ctermbg=NONE
 highlight VertSplit ctermfg=NONE
 highlight VertSplit cterm=NONE
+highlight clear SignColumn
 
 let g:startify_custom_header =
             \ 'startify#center(startify#fortune#cowsay())'
 
 let g:gitgutter_realtime = 0
 let g:gitgutter_eager = 0
+
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
