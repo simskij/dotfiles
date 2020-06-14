@@ -5,6 +5,7 @@ tap 'homebrew/cask-fonts'
 
 cask_args appdir: '/Applications'
 
+brew 'rcm'
 brew 'grip'
 brew 'fontforge'
 brew 'asciinema'
