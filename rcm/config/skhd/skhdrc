@@ -6,7 +6,10 @@ ctrl + shift - k : yabai -m window --swap next
 ctrl + shift - j : yabai -m window --swap prev
 ctrl + shift - h : yabai -m window --focus prev
 ctrl + shift - l : yabai -m window --focus next
-ctrl + alt - h   : yabai -m space --move prev
-ctrl + alt - l   : yabai -m space --move next
+ctrl + alt - h   : yabai -m space --focus prev
+ctrl + alt - j   : yabai -m window --space prev
+ctrl + alt - k   : yabai -m window --space next 
+ctrl + alt - l   : yabai -m space --focus next
 ctrl + shift - n : yabai -m space --create
 ctrl + shift - w : yabai -m space --destroy
+ctrl + shift - f : yabai -m window --toggle zoom-fullscreen

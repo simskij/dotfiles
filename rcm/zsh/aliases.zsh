@@ -13,7 +13,7 @@ alias y="yarn"
 alias pip="pip3"
 alias gg="go get"
 alias ll="ls -la"
-alias ls="colorls -1"
+# alias ls="colorls -1"
 # Learn, you lazy fuck
 alias vi="nvim"
 alias vim="nvim"
@@ -32,3 +32,7 @@ alias watchtower="cd ~/code/containrrr/watchtower"
 
 # New and unsorted
 # ---
+#
+alias k="kubectl"
+alias ka="kubectl apply"
+alias load-chaos="source ~/.venvs/chaostk/bin/activate"

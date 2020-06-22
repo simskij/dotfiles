@@ -14,33 +14,9 @@
   "telemetry.enableCrashReporter": false,
   // Workbench
   "workbench.iconTheme": "material-icon-theme",
-  "customizeUI.activityBar": "bottom",
-  "customizeUI.titleBar": "inline",
-  // Theming
-  "workbench.colorCustomizations": {
-    "window.activeBorder": "#2C3746",
-    "window.inactiveBorder": "#2C3746",
-    "sideBar.background": "#2C3746",
-    "menu.background": "#2C3746",
-    "panel.background": "#2C3746",
-    "editorPane.background": "#2C3746",
-    "editor.background": "#2C3746",
-    "editorGutter.background": "#2C3746",
-    "terminal.background": "#2C3746",
-    "tab.inactiveBackground": "#2C3746",
-    "titleBar.inactiveBackground": "#2C3746",
-    "button.background": "#2C3746",
-    "sideBarSectionHeader.background": "#2C3746",
-    "titleBar.activeBackground": "#2C3746",
-    "activityBar.background": "#2C3746",
-    "editorGroupHeader.tabsBackground": "#2C3746",
-    "statusBar.background": "#2C3746",
-    "statusBar.noFolderBackground": "#2C3746",
-    "sideBar.border": "#2C3746",
-    "editor.lineHighlightBackground": "#2C3746",
-    "editor.selectionBackground": "#4b596c"
-  },
+
   "materialTheme.accent": "Cyan",
+
   // GPM
   "gitProjectManager.baseProjectsFolders": ["~/code"],
   // Formatters
@@ -51,7 +27,8 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": null,
+    "editor.formatOnSave": false
   },
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -94,7 +71,8 @@
   "zenMode.restore": false,
   "material-icon-theme.folders.color": "#90a4ae",
   "editor.tabSize": 2,
-  "prettier.singleQuote": true
+  "prettier.singleQuote": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
 
   // Only for streaming
   // "editor.cursorBlinking": "solid",
@@ -102,4 +80,9 @@
   // "editor.parameterHints": false,
   // "window.titleBarStyle": "native",
   // "explorer.confirmDelete": false
+
+  "kickassembler.assemblerJar": "/Users/simme/KickAssembler/KickAss.jar",
+  "kickassembler.javaRuntime": "/usr/bin/java",
+  "kickassembler.emulatorRuntime": "/Applications/vice-gtk3-3.4-r37694/bin/x64sc",
+  "workbench.colorTheme": "Nord"
 }

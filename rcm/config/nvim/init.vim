@@ -6,10 +6,11 @@ call plug#begin('~/.vim/plugged')
 Plug 'moll/vim-node'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-
+Plug 'HendrikPetertje/vimify'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries', 'for': ['go', 'markdown'] }
 
 Plug 'airblade/vim-gitgutter'
+Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/vim-emoji'
 Plug 'haya14busa/vim-keeppad'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle'] }
@@ -57,10 +58,10 @@ function! GitBranch()
   return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
 endfunction
 
-function! StatuslineGit()
-  let l:branchname = GitBranch()
-  return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
+function! CurrentlyPlaying()
+  return system("~/.config/nvim/spotify.sh | tr -d '\n'")
 endfunction
+
 
 set tabstop=2
 
@@ -79,7 +80,20 @@ let g:startify_custom_header =
 let g:gitgutter_realtime = 0
 let g:gitgutter_eager = 0
 
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
+
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set expandtab
+
+function! GitBranch()
+  return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+endfunction
+
+function! StatuslineGit()
+  let l:branchname = GitBranch()
+  return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
+endfunction
+
+let g:airline#extensions#tabline#enabled=1
