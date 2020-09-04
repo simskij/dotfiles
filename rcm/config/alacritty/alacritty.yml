@@ -61,3 +61,11 @@ key_bindings:
   - key: Right
     mods: Alt
     chars: "\x1bf"
+
+  - key: Left
+    mods: Command
+    chars: "\x1bb"
+  
+  - key: Right
+    mods: Command
+    chars: "\x1bf"

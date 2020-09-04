@@ -23,7 +23,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'kien/ctrlp.vim', {'on': ['CtrlP', 'CtrlPMixed', 'CtrlPMRU']}
 Plug 'mattn/emmet-vim'
 Plug 'JamshedVesuna/vim-markdown-preview', {'for': ['markdown']}
-  
+Plug 'eliba2/vim-node-inspect'
+
 call plug#end()
 
 filetype plugin indent on
@@ -97,3 +98,4 @@ function! StatuslineGit()
 endfunction
 
 let g:airline#extensions#tabline#enabled=1
+let g:spotify_token='ZWJiOGM3NzliYjU4NGVlOGEzMmM5MDdjOGZkMmI2NWE6MDBkYjY3OWE3OTE2NDExMDhjMGQwYTE0NzVkNTdlNjU='

@@ -1,6 +1,7 @@
 {
-  "window.zoomLevel": 1,
+  "window.zoomLevel": 0,
   "extensions.autoUpdate": true,
+
   // Editor
   "editor.fontFamily": "Fira Code",
   "editor.fontLigatures": true,
@@ -9,16 +10,26 @@
   "editor.formatOnSave": true,
   "editor.tokenColorCustomizations": {},
   "editor.rulers": [100],
+  "editor.tabSize": 2,
+
+  "prettier.singleQuote": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+
   // Telemetry
   "telemetry.enableTelemetry": false,
   "telemetry.enableCrashReporter": false,
+
   // Workbench
+  "workbench.colorTheme": "Nord",
   "workbench.iconTheme": "material-icon-theme",
 
+  // Material
   "materialTheme.accent": "Cyan",
+  "material-icon-theme.folders.color": "#90a4ae",
 
   // GPM
   "gitProjectManager.baseProjectsFolders": ["~/code"],
+
   // Formatters
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -33,8 +44,11 @@
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.python"
+  },
   "[go]": {
-    "editor.defaultFormatter": "ms-vscode.Go"
+    "editor.defaultFormatter": "golang.go"
   },
   "[json]": {
     "editor.defaultFormatter": "vscode.json-language-features"
@@ -54,12 +68,14 @@
   // Integrated Terminal
   "terminal.integrated.shell.osx": "/bin/zsh",
   "terminal.integrated.fontFamily": "FiraMono Nerd Font",
+
   // Go
   "go.formatTool": "goimports",
   "go.useLanguageServer": true,
   "go.languageServerExperimentalFeatures": {
     "diagnostics": true
   },
+
   // Zen Mode
   "zenMode.fullScreen": true,
   "zenMode.hideLineNumbers": false,
@@ -69,10 +85,7 @@
   "zenMode.hideStatusBar": false,
   "zenMode.hideTabs": false,
   "zenMode.restore": false,
-  "material-icon-theme.folders.color": "#90a4ae",
-  "editor.tabSize": 2,
-  "prettier.singleQuote": true,
-  "typescript.updateImportsOnFileMove.enabled": "always",
+  "python.formatting.provider": "black"
 
   // Only for streaming
   // "editor.cursorBlinking": "solid",
@@ -80,9 +93,4 @@
   // "editor.parameterHints": false,
   // "window.titleBarStyle": "native",
   // "explorer.confirmDelete": false
-
-  "kickassembler.assemblerJar": "/Users/simme/KickAssembler/KickAss.jar",
-  "kickassembler.javaRuntime": "/usr/bin/java",
-  "kickassembler.emulatorRuntime": "/Applications/vice-gtk3-3.4-r37694/bin/x64sc",
-  "workbench.colorTheme": "Nord"
 }
