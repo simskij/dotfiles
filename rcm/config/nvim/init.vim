@@ -24,6 +24,7 @@ Plug 'kien/ctrlp.vim', {'on': ['CtrlP', 'CtrlPMixed', 'CtrlPMRU']}
 Plug 'mattn/emmet-vim'
 Plug 'JamshedVesuna/vim-markdown-preview', {'for': ['markdown']}
 Plug 'eliba2/vim-node-inspect'
+Plug 'wellle/context.vim'
 
 call plug#end()
 
