@@ -1,6 +1,6 @@
 ctrl + alt + cmd - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
 
-cmd - return : /Applications/iTerm.app/Contents/MacOS/iTerm3
+cmd - return : /Applications/Alacritty.app/Contents/MacOS/alacritty 
 
 ctrl + shift - k : yabai -m window --swap next 
 ctrl + shift - j : yabai -m window --swap prev

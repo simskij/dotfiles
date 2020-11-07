@@ -37,3 +37,4 @@ alias watchtower="cd ~/code/containrrr/watchtower"
 alias k="kubectl"
 alias ka="kubectl apply"
 alias load-chaos="source ~/.venvs/chaostk/bin/activate"
+alias enable-recovery-mode='sudo nvram "recovery-boot-mode=unused"'

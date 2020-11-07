@@ -18,6 +18,9 @@ window:
     x: 10
     y: 30
 
+font:
+  normal:
+    family: FiraCode Nerd Font Mono
 colors:
   primary:
     background: '0x2E3440'

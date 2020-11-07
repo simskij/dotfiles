@@ -6,7 +6,7 @@ export TERM='xterm-256color'
 
 source $ZSH/oh-my-zsh.sh
 
-ssh-add -K ~/.ssh/id_rsa
+ssh-add -K ~/.ssh/id_rsa 2>/dev/null
 
 typeset -U config_files
 config_files=(~/.zsh/*.zsh)
@@ -16,4 +16,6 @@ do
   source $file
 done
 
+source <(kubectl completion zsh)
+complete -F __start_kubectl k
 # zprof
