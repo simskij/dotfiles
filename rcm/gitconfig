@@ -13,6 +13,8 @@ mc = merge --continue
 df = diff
 contributors = shortlog --summary --numbered
 vomit = !git commit -m "$(curl -s http://whatthecommit.com/index.txt)"
+	rewrite = config --global url.ssh://git@github.com/.insteadOf https://github.com/
+	rm-rewrite = config --global --unset url.ssh://git@github.com/:.insteadOf
 
 [color]
 ui = true
@@ -33,3 +35,5 @@ gpgsign = true
 
 [pull]
 rebase = true
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/

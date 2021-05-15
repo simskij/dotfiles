@@ -1,10 +1,19 @@
 # zmodload zsh/zprof
 
-export ZSH="$HOME/.oh-my-zsh"
-export ZSH_DISABLE_COMPFIX=true
-export TERM='xterm-256color'
+autoload -Uz compinit
 
-source $ZSH/oh-my-zsh.sh
+setopt EXTENDEDGLOB
+for dump in $HOME/.zcompdump(#qN.m1); do
+  compinit
+  if [[ -s "$dump" && (! -s "$dump.zwc" || "$dump" -nt "$dump.zwc") ]]; then
+    zcompile "$dump"
+  fi
+done
+unsetopt EXTENDEDGLOB
+compinit -C
+
+export ZSH_DISABLE_COMPFIX="true"
+export TERM='xterm-256color'
 
 ssh-add -K ~/.ssh/id_rsa 2>/dev/null
 
@@ -16,6 +25,4 @@ do
   source $file
 done
 
-source <(kubectl completion zsh)
-complete -F __start_kubectl k
 # zprof

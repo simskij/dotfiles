@@ -6,3 +6,4 @@ dotfiles/.tmux/sidebar
 Brewfile.lock.json
 secrets.zsh
 rcm/tmux/plugins
+.idea
