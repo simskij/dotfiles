@@ -7,19 +7,20 @@
         "sway/mode"
     ],
     "modules-center": [
+        "pulseaudio",
         "custom/spotify"
     ],
     "modules-right": [
         "custom/github",
-        // "tray",
+        "cpu",
+        "memory",
         "bluetooth",
-        "pulseaudio", 
         "network", 
         "battery", 
         "clock"
     ],
     "bluetooth": {
-        "format": "  {icon}  ",
+        "format": "{icon}",
         "interval": 30,
         "format-icons": {
             "enabled": "",
@@ -44,7 +45,7 @@
     },
     "custom/spotify": {
         "exec": "/usr/bin/python3 /home/simme/.config/waybar/mediaplayer.py --player spotify",
-        "format": "{}",
+        "format": "   {}",
         "return-type": "json",
         "on-click": "playerctl play-pause",
         "on-scroll-up": "playerctl next",
@@ -57,7 +58,7 @@
         "disable-scroll": true,
         "format": "{icon}",
         "format-icons": {
-            "1:ubuntu" : "",
+            "1:ubuntu" : "",
             "2:code"   : "",
             "3:shell"  : "",
             "4:spotify": "",
@@ -79,13 +80,18 @@
     },
     "network": {
       "interval": 5,
-      "format-wifi": "  {essid} ({signalStrength}%)",
+      "format-wifi": "  {essid}",
       "tooltip-format":  "{ifname}: {ipaddr}",
       "format-ethernet": "  {ipaddr}",
       "format-disconnected": "⚠  Disconnected",
-      "on-click": "kitty --title nmtui nmtui"
+      "on-click": "nm-connection-editor"
     },
-    
+    "cpu": {
+      "format": " {usage}%" 
+    },
+    "memory": {
+      "format": " {used:0.1f}G / {total:0.1f}G ({percentage}%)"
+    },
     "tray": {
         "icon-size": 21,
         "spacing": 10
@@ -101,7 +107,7 @@
             "phone"     : "",
             "portable"  : "",
             "car"       : "",
-            "default"   : ["", ""]
+            "default"   : ["", ""]
         },
         "on-click": "alacritty --title='Sound Mixer' --command='pulsemixer'",
         "tooltip": true

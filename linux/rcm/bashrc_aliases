@@ -1,0 +1,53 @@
+dotfiles='~/.dotfiles'
+repos='~/code'
+
+# Convenience
+
+alias reload='source ~/.bashrc'
+alias auth="ssh-add ~/.ssh/id_rsa"
+alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -"
+alias whatsmyip="curl ifconfig.co"
+alias tmh="tmux splitw -h"
+alias tmv="tmux splitw -v"
+
+# Python
+
+alias python='python3'
+alias pip='pip3'
+
+# Vim
+
+alias vi="nvim"
+alias vim="nvim"
+alias nano="nvim"
+
+# Kubernetes & Docker
+
+alias k="kubectl"
+alias d="docker"
+
+# Git
+
+alias g="git"
+alias gg="git pull --rebase --autostash"
+
+# Files
+
+alias ls='ls --color=auto'
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
+
+alias dotfiles="cd $dotfiles"
+alias repos="cd $repos"
+
+# Text
+
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+# Misc
+
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
