@@ -1,0 +1,8 @@
+.DS_Store
+dotfiles/.tmux/plugins
+dotfiles/.tmux/resurrect
+dotfiles/.tmux/sessions
+dotfiles/.tmux/sidebar
+Brewfile.lock.json
+secrets.zsh
+rcm/tmux/plugins

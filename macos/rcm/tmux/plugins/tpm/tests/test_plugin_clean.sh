@@ -1,0 +1,1 @@
+/Users/simme/code/simskij/dotfiles/rcm/tmux/plugins/tpm/tests/test_plugin_clean.sh

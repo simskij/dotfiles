@@ -1,0 +1,96 @@
+
+format = """\
+$directory\
+$git_branch\
+$git_commit\
+$git_status\
+$git_state\
+$golang\
+$helm\
+$python\
+$memory_usage\
+$env_var\
+$nodejs\
+$kubernetes\
+$line_break\
+$shlvl\
+$jobs\
+$status\
+$character"""
+
+add_newline = true
+
+[character]
+success_symbol = "[➜](bold green)"
+error_symbol = "[➜](bold red)"
+
+[directory]
+truncate_to_repo = true
+truncation_symbol =	"/"
+truncation_length	= 8
+
+[git_branch]
+format = "[$symbol $branch ]($style)"
+symbol = ""
+#style = "bg:#667788 fg:#eeeeee"
+
+[git_commit]
+only_detached	= false
+format = "[$hash]($style) "
+tag_disabled = false
+tag_symbol = ""
+commit_hash_length = 4
+#style = "bg:#556677 fg:#dddddd"
+
+[shlvl]
+disabled = false
+format = 	"[$shlvl$symbol]($style) "
+symbol = " ×"
+
+[git_status]
+style      = "fg:#efefef"
+ahead      = "⇡×${count} "
+behind     = "⇣×${count} "
+diverged   = "⇕ ⇡×${ahead_count} ⇣×${behind_count} "
+conflicted = " "
+untracked  = "×${count} "
+stashed    = "  "
+modified   = "×${count} "
+staged     = "×${count} "
+renamed    = "×${count} "
+deleted    = "×${count} "
+format = """[\
+$diverged\
+$ahead\
+$behind\
+$conflicted\
+$ahead_behind\
+$untracked\
+$modified\
+$staged\
+$renamed\
+$deleted]($style)"""
+
+[golang]
+format = "[$symbol$version ]($style)"
+symbol = " "
+style = "dimmed fg:cyan"
+
+[kubernetes]
+format = '[⎈ $context](dimmed fg:blue) '
+disabled = false
+
+[kubernetes.context_aliases]
+"media.harley.cluster.k8s"   = "harley/media"
+"default.harley.cluster.k8s" = "harley/default"
+"infra.harley.cluster.k8s"   = "harley/infra"
+"home.harley.cluster.k8s"    = "harley/home"
+"default.organa.cluster.k8s" = "organa/default"
+
+[nodejs]
+format = "[$symbol$version]($style) "
+style = "bold fg:green"
+symbol = " "
+
+[package]
+disabled = true

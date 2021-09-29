@@ -1,0 +1,96 @@
+{
+  "window.zoomLevel": 0,
+  "extensions.autoUpdate": true,
+
+  // Editor
+  "editor.fontFamily": "Fira Code",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 12,
+  "editor.minimap.enabled": false,
+  "editor.formatOnSave": true,
+  "editor.tokenColorCustomizations": {},
+  "editor.rulers": [100],
+  "editor.tabSize": 2,
+
+  "prettier.singleQuote": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+
+  // Telemetry
+  "telemetry.enableTelemetry": false,
+  "telemetry.enableCrashReporter": false,
+
+  // Workbench
+  "workbench.colorTheme": "Nord",
+  "workbench.iconTheme": "material-icon-theme",
+
+  // Material
+  "materialTheme.accent": "Cyan",
+  "material-icon-theme.folders.color": "#90a4ae",
+
+  // GPM
+  "gitProjectManager.baseProjectsFolders": ["~/code"],
+
+  // Formatters
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": null,
+    "editor.formatOnSave": false
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.python"
+  },
+  "[go]": {
+    "editor.defaultFormatter": "golang.go"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  // Files
+  "files.associations": {
+    "Brewfile": "ruby"
+  },
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/.idea": true
+  },
+  // Integrated Terminal
+  "terminal.integrated.shell.osx": "/bin/zsh",
+  "terminal.integrated.fontFamily": "FiraMono Nerd Font",
+
+  // Go
+  "go.formatTool": "goimports",
+  "go.useLanguageServer": true,
+  "go.languageServerExperimentalFeatures": {
+    "diagnostics": true
+  },
+
+  // Zen Mode
+  "zenMode.fullScreen": true,
+  "zenMode.hideLineNumbers": false,
+  "zenMode.silentNotifications": true,
+  "zenMode.hideActivityBar": false,
+  "zenMode.centerLayout": true,
+  "zenMode.hideStatusBar": false,
+  "zenMode.hideTabs": false,
+  "zenMode.restore": false,
+  "python.formatting.provider": "black"
+
+  // Only for streaming
+  // "editor.cursorBlinking": "solid",
+  // "editor.quickSuggestions": false,
+  // "editor.parameterHints": false,
+  // "window.titleBarStyle": "native",
+  // "explorer.confirmDelete": false
+}

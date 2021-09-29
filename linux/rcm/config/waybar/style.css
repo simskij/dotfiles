@@ -1,0 +1,55 @@
+window#waybar {
+	background: transparent;
+	color: #fff;
+}
+window#waybar>box {
+  margin: 0px 40px 20px 40px;
+  background: transparent;
+}
+
+.modules-right {
+  background: #eee;
+}
+
+widget>label {
+  margin: 10px 5px 10px 5px;
+  padding: 10px;
+  border-radius: 4px;
+  background: #3b4252;
+}
+
+widget>label#clock {
+  margin: 10px 0 10px 5px;
+  color: #3b4252;
+  font-weight: bold;
+  background: #d8dee9;
+  padding: 0 10px 0 10px;
+  font-family: monospace;
+}
+
+#workspaces button {
+  color: #e5e9f0;
+  margin: 10px 5px;
+  padding: 0 10px 0px 10px;
+  border-radius: 4;
+  font-size: 20px;
+}
+
+#workspaces button.focused {
+  border-radius: 4px;
+  color: #2e3440;
+  background: #e5e9f0;
+}
+
+#battery, #network, #memory, #cpu, #pulseaudio {
+  padding: 0 10px;
+}
+
+#workspaces button.persistent {
+  background: transparent;
+  color: #5b6272;
+}
+
+#custom-menu {
+  padding: 0px 10px;
+}

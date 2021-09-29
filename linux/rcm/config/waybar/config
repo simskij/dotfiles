@@ -1,0 +1,130 @@
+{
+    "position": "bottom",
+    "layer": "top",
+    "modules-left": [
+        "custom/menu", 
+        "sway/workspaces", 
+        "sway/mode"
+    ],
+    "modules-center": [
+        "custom/spotify"
+    ],
+    "modules-right": [
+        "custom/github",
+        // "tray",
+        "bluetooth",
+        "pulseaudio", 
+        "network", 
+        "battery", 
+        "clock"
+    ],
+    "bluetooth": {
+        "format": "  {icon}  ",
+        "interval": 30,
+        "format-icons": {
+            "enabled": "",
+            "disabled": ""
+        },
+        "on-click": "blueman-manager",
+        "tooltip-format": "{}"
+    },
+    "custom/github": {
+        "interval": 300,
+        "tooltip": false,
+        "return-type": "json",
+        "format" : "  {} ",
+        "exec": "gh api '/notifications' -q '{ text: length }' | cat -",
+        "on-click": "google-chrome https://github.com/notifications && sleep 30 && pkill -RTMIN+4 waybar",
+        "signal": 4
+    },
+    "custom/menu": {
+        "on-click": "swaymsg exec \\$menu",
+        "format": "  ",
+        "tooltip": false
+    },
+    "custom/spotify": {
+        "exec": "/usr/bin/python3 /home/simme/.config/waybar/mediaplayer.py --player spotify",
+        "format": "{}",
+        "return-type": "json",
+        "on-click": "playerctl play-pause",
+        "on-scroll-up": "playerctl next",
+        "on-scroll-down": "playerctl previous"
+    },
+    "sway/workspaces": {
+        "tooltip": false,
+        "all-outputs": false,
+        "current-only": false,
+        "disable-scroll": true,
+        "format": "{icon}",
+        "format-icons": {
+            "1:ubuntu" : "",
+            "2:code"   : "",
+            "3:shell"  : "",
+            "4:spotify": "",
+            "5:chat"   : "",
+            "urgent"   : "",
+            "focused"  : "",
+            "default"  : ""
+        },
+        "persistent_workspaces": {
+          "1:ubuntu"  : [],
+          "2:code"    : [],
+          "3:shell"   : [],
+          "4:spotify" : [],
+          "5:chat"    : []
+        }
+    },
+    "sway/window": {
+        "max-length": 50
+    },
+    "network": {
+      "interval": 5,
+      "format-wifi": "  {essid} ({signalStrength}%)",
+      "tooltip-format":  "{ifname}: {ipaddr}",
+      "format-ethernet": "  {ipaddr}",
+      "format-disconnected": "⚠  Disconnected",
+      "on-click": "kitty --title nmtui nmtui"
+    },
+    
+    "tray": {
+        "icon-size": 21,
+        "spacing": 10
+    },
+    "pulseaudio": {
+        "scroll-step": 1,
+        "format": "{icon}  {volume}%",
+        "format-muted": "  Muted",
+        "format-icons": {
+            "headphones": "",
+            "handsfree" : "",
+            "headset"   : "",
+            "phone"     : "",
+            "portable"  : "",
+            "car"       : "",
+            "default"   : ["", ""]
+        },
+        "on-click": "alacritty --title='Sound Mixer' --command='pulsemixer'",
+        "tooltip": true
+    },
+    "battery": {
+        "interval": 10,
+        "states": {
+            "warning": 30,
+            "critical": 15,
+            "full": 75
+        },
+        "format": "  {icon}  {capacity}%",
+        "format-discharging": "{icon}  {capacity}%",
+        "format-icons": [
+            "", 
+            "",
+            "",
+            "",
+            "" 
+        ],
+        "tooltip": true
+    },
+    "clock": {
+        "format-alt": "{:%a, %d. %b  %H:%M}"
+    }
+}

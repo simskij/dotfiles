@@ -1,0 +1,154 @@
+:root {
+  --sidebar-width: 85px;
+  --bar-height: 70px;
+}
+
+.scrollbar-style-visible-windows ::-webkit-scrollbar {
+    display: none !important;
+}
+
+#menu-wrapper {
+  max-width: 90px;
+  min-width: 90px;
+}
+
+.SidebarListItem__inner {
+	align-items: center;
+}
+
+[class^=spoticon-]::before, [class*=" spoticon-"]::before {
+  font-size: 18px !important;
+}
+
+.SidebarListItemLink {
+	z-index: 2;
+	justify-content: center;
+  margin: 0px auto;
+  height: 31px;
+}
+
+.LeftSidebar__section {
+ margin: 0;
+}
+
+.RootlistItem {
+  padding: 0 7px;
+  margin: 0;
+}
+
+.SidebarList__title,
+.LeftSidebarNewPlaylistButton__text{
+  display: none !important;
+}
+
+// .SidebarListItem__label {
+//   display: none !important;
+// }
+
+// Player
+
+.playlist-picture span {
+	display: none !important;
+}
+
+.playlist-picture {
+	width: 30px;
+	height: var(--left-sidebar-item-height);
+	background-size: cover;
+	border-radius: 4px;
+	margin: 8px auto;
+}
+
+// #view-navigation-bar {
+//  background: #E5E9F0 !important;
+// }
+
+.player-bar-wrapper .player-controls-container {
+  order: 0;
+}
+
+.player-bar-wrapper .now-playing-container {
+  order: 1;
+  display: none;
+}
+
+.player-bar-wrapper .extra-controls-container {
+  order: 2;
+  text-align: right;
+}
+
+#player-button-play, 
+#player-button-play::after,
+#player-button-play::before {
+  box-shadow: none !important;
+}
+
+.main-view-wrapper {
+  height: calc(100% - var(--bar-height));
+}
+
+#view-player {
+  position: absolute;
+  left: var(--sidebar-width);
+  right: 0px;
+  bottom: 0px;
+  height: var(--bar-height) !important;
+  z-index: 2;
+}
+
+.player-bar-spacer {
+  display: none;
+}
+
+.controls button {
+  padding: 0px;
+  margin: 0px !important;
+}
+
+.controls button::after {
+  display: none !important;
+}
+
+.player-bar-wrapper {
+  height: 65px !important;
+}
+
+.player-bar-wrapper .player-controls-container .controls {
+  text-align: left;
+}
+
+.progress-container {
+  position: absolute;
+  left: 0px;
+  bottom: 58px;
+  right: 0px;
+}
+
+.progress-container span {
+  display: none !important;
+}
+
+#connect-container-background,
+#remote-playback-bar,
+.RootlistItemPlaylist__play-button,
+.RootlistItemPlaylist__text-wrapper {
+  display: none !important;
+}
+
+.glue-page-header__content-wrapper,
+.playlist-content, 
+.tracklist-container {
+  padding-left: 0px !important;
+  padding-right: 8px !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  max-width: unset;
+}
+
+#view-buddy-list, .tl-date-added, .tl-play {
+  display: none !important;
+}
+
+.tl-save {
+  padding: 0 10px 0 0;
+}
