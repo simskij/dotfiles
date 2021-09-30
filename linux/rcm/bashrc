@@ -12,6 +12,9 @@ shopt -s globstar
 HISTSIZE=1000
 HISTFILESIZE=2000
 
+eval $(gnome-keyring-daemon --start)
+export SSH_AUTH_SOCK
+
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then

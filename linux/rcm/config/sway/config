@@ -17,6 +17,8 @@ bindswitch --locked lid:off output $laptop enable
 
 ### Notifications
 exec mako
+exec eval $(gnome-keyring-daemon --start)
+exec export SSH_AUTH_SOCK
 
 ### Floating
 for_window [instance="1password"] floating enable
