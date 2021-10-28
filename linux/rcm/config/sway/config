@@ -6,10 +6,13 @@ set $down j
 set $up k
 set $right l
 set $term kitty
-set $menu wofi -d | xargs swaymsg exec --
+set $menu wofi --show drun --allow-images | xargs swaymsg exec --
 #set $menu dmenu_path | dmenu | xargs swaymsg exec --
 set $laptop eDP-1
 set $browser google-chrome
+
+exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
+
 
 ### Binds
 bindswitch --locked lid:on output $laptop disable
@@ -57,6 +60,7 @@ include /etc/sway/config.d/*
 
 gaps inner 20
 gaps outer 20
+gaps bottom 0
 default_border none
 
 input "type:keyboard" {
@@ -78,7 +82,7 @@ bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. 
 bindsym $mod+$left focus left
 bindsym $mod+$down focus down
 bindsym $mod+$up focus up
-bindsym $mod+$right focus right
+bindsym $mod+l exec wlogout -b 4 -r 0 -T 700 -B 700 -L 1300 -R 1300 -c 0 
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
@@ -95,9 +99,9 @@ bindsym $mod+Shift+Right move right
 bindsym $mod+1 workspace 1:ubuntu
 bindsym $mod+2 workspace 2:code
 bindsym $mod+3 workspace 3:shell
-bindsym $mod+4 workspace 4:spotify
+bindsym $mod+4 workspace 4:obsidian
 bindsym $mod+5 workspace 5:chat
-bindsym $mod+6 workspace 6
+bindsym $mod+6 workspace 6:spotify
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
@@ -105,9 +109,9 @@ bindsym $mod+0 workspace 10
 bindsym $mod+Shift+1 move container to workspace 1:ubuntu
 bindsym $mod+Shift+2 move container to workspace 2:code
 bindsym $mod+Shift+3 move container to workspace 3:shell
-bindsym $mod+Shift+4 move container to workspace 4:spotify
+bindsym $mod+Shift+4 move container to workspace 4:obsidian
 bindsym $mod+Shift+5 move container to workspace 5:chat
-bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+6 move container to workspace 6:spotify
 bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9

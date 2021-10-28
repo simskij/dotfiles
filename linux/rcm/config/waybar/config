@@ -57,21 +57,23 @@
         "disable-scroll": true,
         "format": "{icon}",
         "format-icons": {
-            "1:ubuntu" : "",
-            "2:code"   : "",
-            "3:shell"  : "",
-            "4:spotify": "",
-            "5:chat"   : "",
-            "urgent"   : "",
-            "focused"  : "",
-            "default"  : ""
+            "1:ubuntu"  : "",
+            "2:code"    : "",
+            "3:shell"   : "",
+            "4:obsidian": "",
+            "5:chat"    : "",
+            "6:spotify" : "",
+            "urgent"    : "",
+            "focused"   : "",
+            "default"   : ""
         },
         "persistent_workspaces": {
-          "1:ubuntu"  : [],
-          "2:code"    : [],
-          "3:shell"   : [],
-          "4:spotify" : [],
-          "5:chat"    : []
+          "1:ubuntu"   : [],
+          "2:code"     : [],
+          "3:shell"    : [],
+          "4:obsidian" : [],
+          "5:chat"     : [],
+          "6:spotify"  : []
         }
     },
     "sway/window": {

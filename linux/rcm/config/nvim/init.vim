@@ -1,6 +1,12 @@
 set nocompatible
 filetype off
 
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin('~/.vim/plugged')
 
 Plug 'moll/vim-node'
@@ -25,6 +31,8 @@ Plug 'mattn/emmet-vim'
 Plug 'JamshedVesuna/vim-markdown-preview', {'for': ['markdown']}
 Plug 'eliba2/vim-node-inspect'
 Plug 'wellle/context.vim'
+Plug 'Valloric/YouCompleteMe'
+
 
 call plug#end()
 
@@ -71,7 +79,7 @@ colorscheme snazzy
 colorscheme nord
 
 hi Normal guibg=NONE ctermbg=NONE
-highlight VertSplit ctermbg=NONE
+highlight VertSplit ctermbg=NONE guibg=NONE
 highlight VertSplit ctermfg=NONE
 highlight VertSplit cterm=NONE
 highlight clear SignColumn

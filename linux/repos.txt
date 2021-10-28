@@ -1,0 +1,2 @@
+ppa:yubico/stable
+"deb http://repository.spotify.com stable non-free"
