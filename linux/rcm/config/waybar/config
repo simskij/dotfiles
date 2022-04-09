@@ -1,23 +1,17 @@
-{
-    "position": "bottom",
+[{
+    "name": "left",
+    "position": "left",
     "layer": "top",
     "modules-left": [
-        "custom/menu", 
         "sway/workspaces", 
         "sway/mode"
     ],
     "modules-center": [
-        "pulseaudio",
-        "custom/spotify"
     ],
     "modules-right": [
-        "custom/github",
-        "cpu",
-        "memory",
-        "bluetooth",
-        "network", 
-        "battery", 
-        "clock"
+      "bluetooth",
+      "pulseaudio",
+      "clock"
     ],
     "bluetooth": {
         "format": "{icon}",
@@ -26,29 +20,16 @@
             "enabled": "",
             "disabled": ""
         },
-        "on-click": "blueman-manager",
+        "on-click": "blueberry",
         "tooltip-format": "{}"
     },
-    "custom/github": {
-        "interval": 300,
-        "tooltip": false,
-        "return-type": "json",
-        "format" : "  {} ",
-        "exec": "gh api '/notifications' -q '{ text: length }' | cat -",
-        "on-click": "google-chrome https://github.com/notifications && killall waybar && waybar &"
+    "clock": {
+      "rotate": 90
     },
     "custom/menu": {
         "on-click": "swaymsg exec \\$menu",
         "format": "  ",
         "tooltip": false
-    },
-    "custom/spotify": {
-        "exec": "/usr/bin/python3 /home/simme/.config/waybar/mediaplayer.py --player spotify",
-        "format": "   {}",
-        "return-type": "json",
-        "on-click": "playerctl play-pause",
-        "on-scroll-up": "playerctl next",
-        "on-scroll-down": "playerctl previous"
     },
     "sway/workspaces": {
         "tooltip": false,
@@ -57,23 +38,26 @@
         "disable-scroll": true,
         "format": "{icon}",
         "format-icons": {
-            "1:ubuntu"  : "",
+            "1:start"   : "=",
             "2:code"    : "",
             "3:shell"   : "",
             "4:obsidian": "",
             "5:chat"    : "",
             "6:spotify" : "",
-            "urgent"    : "",
-            "focused"   : "",
-            "default"   : ""
+            "8"         : "",
+            "9"         : "",
+            "10"        : ""
         },
         "persistent_workspaces": {
-          "1:ubuntu"   : [],
-          "2:code"     : [],
-          "3:shell"    : [],
-          "4:obsidian" : [],
-          "5:chat"     : [],
-          "6:spotify"  : []
+          "1:start"    : ["HDMI-A-1"],
+          "2:code"     : ["HDMI-A-1"],
+          "3:shell"    : ["HDMI-A-1"],
+          "4:obsidian" : ["HDMI-A-1"],
+          "5:chat"     : ["HDMI-A-1"],
+          "6:spotify"  : ["HDMI-A-1"],
+          "8"          : ["DP-4"],
+          "9"          : ["DP-4"],
+          "10"         : ["DP-4"]
         }
     },
     "sway/window": {
@@ -99,6 +83,7 @@
     },
     "pulseaudio": {
         "scroll-step": 1,
+        "rotate": 90,
         "format": "{icon}  {volume}%",
         "format-muted": "  Muted",
         "format-icons": {
@@ -110,28 +95,11 @@
             "car"       : "",
             "default"   : ["", ""]
         },
-        "on-click": "alacritty --title='Sound Mixer' --command='pulsemixer'",
-        "tooltip": true
-    },
-    "battery": {
-        "interval": 10,
-        "states": {
-            "warning": 30,
-            "critical": 15,
-            "full": 75
-        },
-        "format": "  {icon}  {capacity}%",
-        "format-discharging": "{icon}  {capacity}%",
-        "format-icons": [
-            "", 
-            "",
-            "",
-            "",
-            "" 
-        ],
+        "on-click": "kitty pulsemixer",
         "tooltip": true
     },
     "clock": {
-        "format-alt": "{:%a, %d. %b  %H:%M}"
+        "format-alt": "{:%a, %d. %b  %H:%M}",
+        "rotate": 90
     }
-}
+}]

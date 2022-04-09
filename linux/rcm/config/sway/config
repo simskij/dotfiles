@@ -1,47 +1,124 @@
-
-### Variables
 set $mod Mod4
-set $left h
-set $down j
-set $up k
-set $right l
-set $term kitty
-set $menu wofi --show drun --allow-images | xargs swaymsg exec --
-#set $menu dmenu_path | dmenu | xargs swaymsg exec --
-set $laptop eDP-1
-set $browser google-chrome
+set $left left
+set $down down
+set $up up
+set $right right
 
-exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
+set $term kitty 
 
+set $menu 'rofi -modi combi -combi-modi window,run,drun,ssh -show combi' 
 
-### Binds
-bindswitch --locked lid:on output $laptop disable
-bindswitch --locked lid:off output $laptop enable
+input "type:keyboard" {
+  xkb_layout us
+  xkb_variant mac
+}
 
-### Notifications
-exec mako
-exec eval $(gnome-keyring-daemon --start)
-exec export SSH_AUTH_SOCK
+gaps inner 20
+gaps outer 20
+gaps left 0
+gaps top 0
 
-### Floating
-for_window [instance="1password"] floating enable
+default_border none 0
 
-### Output
-output * bg /home/simme/Pictures/004.png fit #2e3440
+output * bg /home/simme/.wallpaper.png fill
+output HDMI-A-1 mode 3440x1440 pos 0 0
+output DP-4 transform 90 pos 3440 0
 
-### Idle configuration
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+
+exec swaync
 exec swayidle -w \
-        timeout 300 'swaylock -f -c 000000' \
-        timeout 600 'swaymsg "output * dpms off"' \
-             resume 'swaymsg "output * dpms on" && (swaymsg -t get_outputs | grep "LG HDR 5K") && swaymsg output "eDP-1" disable'
+    timeout 300 'swaylock -f -c 000000' \
+    timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+    before-sleep 'swaylock -f -c 000000'
+
+bindsym $mod+Return exec $term
+bindsym $mod+Shift+q kill
+bindsym $mod+Shift+n exec swaync-client -t -sw
+
+bindsym $mod+Shift+d exec $menu
+bindsym $mod+space exec $menu
+
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+e exec swaynag \
+  -t warning \
+  -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' \
+  -B 'Yes, exit sway' 'swaymsg exit'
+
+
+# Navigation
+
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# Media
+
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+
+# Workspaces
+
+bindsym $mod+1 workspace 1:start
+bindsym $mod+2 workspace 2:code
+bindsym $mod+3 workspace 3:shell
+bindsym $mod+4 workspace 4:obsidian
+bindsym $mod+5 workspace 5:chat
+bindsym $mod+6 workspace 6:spotify
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+bindsym $mod+Shift+1 move container to workspace 1:start
+bindsym $mod+Shift+2 move container to workspace 2:code
+bindsym $mod+Shift+3 move container to workspace 3:shell
+bindsym $mod+Shift+4 move container to workspace 4:obsidian
+bindsym $mod+Shift+5 move container to workspace 5:chat
+bindsym $mod+Shift+6 move container to workspace 6:spotify
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+workspace 1:start output HDMI-A-1
+workspace 2:code output HDMI-A-1
+workspace 3:shell output HDMI-A-1
+workspace 4:obsidian output HDMI-A-1
+workspace 5:chat output HDMI-A-1
+workspace 6:spotify output HDMI-A-1
+workspace 8 output DP-4
+workspace 9 output DP-4
+workspace 10 output DP-4
+
+# Layout
+
+bindsym $mod+b splith
+bindsym $mod+v splitv
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+bindsym $mod+f fullscreen
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+Shift+f focus mode_toggle
+bindsym $mod+a focus parent
 
 floating_modifier $mod normal
-mode "resize" {
-    bindsym $left resize shrink width 10px
-    bindsym $down resize grow height 10px
-    bindsym $up resize shrink height 10px
-    bindsym $right resize grow width 10px
 
+
+# Scratchpad
+
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+
+# Resizing
+mode "resize" {
     bindsym Left resize shrink width 10px
     bindsym Down resize grow height 10px
     bindsym Up resize shrink height 10px
@@ -50,85 +127,16 @@ mode "resize" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
+
 bindsym $mod+r mode "resize"
 
-bar {
-  swaybar_command waybar
-}
+set $lockman exec bash ~/.config/sway/lockman.sh
+bindsym $mod+l exec $lockman
 
-include /etc/sway/config.d/*
-
-gaps inner 20
-gaps outer 20
-gaps bottom 0
-default_border none
-
-input "type:keyboard" {
-  xkb_layout us
-  xkb_variant mac
-}
-
-### Key bindings
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-
-bindsym $mod+Return exec $term
-bindsym $mod+Shift+Return exec $browser
-bindsym $mod+Shift+q kill
-bindsym $mod+d exec $menu
-bindsym $mod+Shift+c reload
-bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
-bindsym $mod+$left focus left
-bindsym $mod+$down focus down
-bindsym $mod+$up focus up
-bindsym $mod+l exec wlogout -b 4 -r 0 -T 700 -B 700 -L 1300 -R 1300 -c 0 
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+comma exec 1password --toggle
-bindsym $mod+Right focus right
-bindsym $mod+Shift+$left move left
-bindsym $mod+Shift+$down move down
-bindsym $mod+Shift+$up move up
-bindsym $mod+Shift+$right move right
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move u
-bindsym $mod+Shift+Right move right
-bindsym $mod+1 workspace 1:ubuntu
-bindsym $mod+2 workspace 2:code
-bindsym $mod+3 workspace 3:shell
-bindsym $mod+4 workspace 4:obsidian
-bindsym $mod+5 workspace 5:chat
-bindsym $mod+6 workspace 6:spotify
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
-bindsym $mod+Shift+1 move container to workspace 1:ubuntu
-bindsym $mod+Shift+2 move container to workspace 2:code
-bindsym $mod+Shift+3 move container to workspace 3:shell
-bindsym $mod+Shift+4 move container to workspace 4:obsidian
-bindsym $mod+Shift+5 move container to workspace 5:chat
-bindsym $mod+Shift+6 move container to workspace 6:spotify
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
-bindsym $mod+b splith
-bindsym $mod+v splitv
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
-bindsym $mod+f fullscreen
-bindsym $mod+Shift+space floating toggle
-# bindsym $mod+space focus mode_toggle
-bindsym $mod+a focus parent
-bindsym $mod+Shift+minus move scratchpad
-bindsym $mod+minus scratchpad show
+# Screenshots
 bindsym $mod+Mod1+3 exec grim && notify-send "Fullscreen screenshot captured"
 bindsym $mod+Mod1+4 exec grim -g "$(slurp)" && notify-send "Screenshot captured"
-bindsym $mod+space exec $menu
 
+exec_always ~/.config/waybar/waybar.sh
 
+include @sysconfdir@/sway/config.d/*

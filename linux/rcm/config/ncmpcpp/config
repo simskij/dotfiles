@@ -1,0 +1,3 @@
+mpd_host = localhost
+mpd_port = 7000
+mpd_music_dir = ~/Music
