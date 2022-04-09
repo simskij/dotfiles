@@ -1,6 +1,0 @@
-[submodule "rcm/config/nvim/rcm/spicetify_data/Themes/Dustbin"]
-	path = rcm/config/nvim/rcm/spicetify_data/Themes/Dustbin
-	url = https://github.com/simskij/spicetify-dustbin-theme
-[submodule "rcm/spicetify_data/Themes/Dustbin"]
-	path = rcm/spicetify_data/Themes/Dustbin
-	url = https://github.com/simskij/spicetify-dustbin-theme
