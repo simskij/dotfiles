@@ -1,7 +1,7 @@
 [user]
 name = Simon Aronsson
 email = simme@arcticbit.se
-	signingkey = 19220CB4C0D65027
+signingkey = 19220CB4C0D65027
 
 [alias]
 st = status
