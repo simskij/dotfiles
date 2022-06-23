@@ -1,0 +1,4 @@
+gaps outer 5
+gaps inner 30
+
+default_border none 0

@@ -1,0 +1,73 @@
+#!/usr/bin/env bash
+
+sudo pacman -Syu --noconfirm \
+  autoconf \
+  automake \
+  base \
+  bison \
+  blueberry \
+  bluez-utils \
+  btop \
+  chromium \
+  cmake \
+  dhcpcd \
+  efibootmgr \
+  exa \
+  fakeroot \
+  firefox \
+  flex \
+  fuse2 \
+  gcc \
+  git \
+  gnome-keyring \
+  grub \
+  kitty \
+  libtool \
+  linux \
+  linux-firmware \
+  linux-headers \
+  linux-lts \
+  lvm2 \
+  m4 \
+  make \
+  mako \
+  man-db \
+  mattermost-desktop \
+  neofetch \
+  neovim \
+  networkmanager \
+  nnn \
+  openssh \
+  patch \
+  pavucontrol \
+  pipewire-pulse \
+  pkgconf \
+  spotifyd \
+  starship \
+  sudo \
+  sway \
+  tailscale \
+  telegram-desktop \
+  texinfo \
+  waybar \
+  wayland \
+  xdg-desktop-portal \
+  xdg-desktop-portal-wlr \
+  xorg-xwayland \
+  zsh 
+
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si --noconfirm
+cd ..
+rm -rf yay
+
+yay -S --noconfirm \
+  1password \
+  brave-bin \
+  nerd-fonts-fira-code \
+  rcm \
+  snapd \
+  spotify-tui \
+  swaylock-effects-git \
+  ulauncher 

@@ -1,1 +1,0 @@
-/Users/simme/code/simskij/dotfiles/rcm/tmux/plugins/tpm/docs/automatic_tpm_installation.md

@@ -1,3 +1,0 @@
-EXCLUDES="README.md script .git rcrc install.sh Brewfile"
-DOTFILES_DIRS="$(pwd)/rcm"
-UNDOTTED="Library spicetify_data gopher.png"

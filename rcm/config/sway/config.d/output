@@ -1,0 +1,5 @@
+output * bg /home/simme/.wallpaper.png fill
+output * scale 1
+
+output HDMI-A-1 mode 3440x1440 pos 0 0
+output DP-4 transform 90 pos 3440 0

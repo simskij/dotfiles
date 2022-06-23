@@ -1,0 +1,45 @@
+# Created by newuser for 5.8.1
+#
+
+alias reload="source ~/.zshrc"
+alias aliases="nvim ~/.zshrc_aliases"
+alias auth="ssh-add ~/.ssh/id_rsa"
+
+alias dots="cd ~/code/simskij/dotfiles"
+alias dots.up="rcup -d ~/code/simskij/dotfiles/rcm -v"
+alias ll="ls -la"
+alias ls="exa"
+alias dust="dust --si"
+alias k="kubectl"
+alias k9s="k9s --logoless"
+alias lxc.nuke="lxc ls -c n --format json | jq -r '.[].name' | xargs lxc rm --force"
+
+## Juju
+
+alias jj="juju"
+alias jj.w="watch --color juju status --color --relations"
+alias jj.l="juju debug-log"
+
+## Editors
+
+alias vi="nvim"
+alias vim="nvim"
+alias nano="nvim"
+
+## Tools
+
+alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -"
+alias whatsmyip="curl ifconfig.co"
+
+
+source <(/usr/bin/starship init zsh --print-full-init)
+source <(ssh-agent)
+
+export PATH=$PATH:/snap/bin
+
+if [ -n "$DESKTOP_SESSION" ];then
+    eval $(gnome-keyring-daemon --start)
+    export SSH_AUTH_SOCK
+fi
+source /usr/share/nvm/init-nvm.sh
+export PATH=$PATH:/home/simme/.spicetify

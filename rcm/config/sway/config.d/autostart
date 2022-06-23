@@ -1,0 +1,8 @@
+exec_always ~/.config/waybar/waybar.sh
+
+exec GDK_BACKEND=wayland ulauncher --hide-window
+exec mako
+exec systemctl --user import-environment
+exec eval $(gnome-keyring-daemon --start)
+exec export SSH_AUTH_SOCK
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
