@@ -99,4 +99,3 @@ function! StatuslineGit()
 endfunction
 
 let g:airline#extensions#tabline#enabled=1
-let g:spotify_token='ZWJiOGM3NzliYjU4NGVlOGEzMmM5MDdjOGZkMmI2NWE6MDBkYjY3OWE3OTE2NDExMDhjMGQwYTE0NzVkNTdlNjU='
