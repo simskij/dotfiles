@@ -1,12 +1,3 @@
-<div align="center">
-
-<img src="./assets/dotfiles.png" width=200 />
-
----
-
-A collection of bits and pieces I've written or found over the years. 
-
-![what it looks like](./assets/what-it-looks-like.png)
-
-</div>
-
+> ## ⚠️ This repo is archived
+> This repo is archived as I'm nowadays using NixOS as my daily driver.
+> To have a look at my NixOS and home-manager config, go to https://github.com/simskij/nixos-config
