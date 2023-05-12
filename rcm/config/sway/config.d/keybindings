@@ -1,0 +1,97 @@
+set $mod mod4
+set $term kitty 
+set $menu ulauncher-toggle
+
+floating_modifier $mod normal
+
+bindsym {
+    $mod+Return exec $term
+    $mod+space exec $menu
+    $mod+Shift+c reload    
+    $mod+Shift+Ctrl+c exec rcup -d ~/meta/simskij/dotfiles/rcm && swaymsg reload    
+    $mod+Left focus left
+    $mod+Down focus down
+    $mod+Up focus up
+    $mod+Right focus right
+    $mod+Shift+Left move left
+    $mod+Shift+Down move down
+    $mod+Shift+Up move up
+    $mod+Shift+Right move right
+    $mod+Shift+q kill    
+    $mod+Backslash exec 1password --toggle --enable-features=UseOzonePlatform --ozone-platform=wayland
+    $mod+1 workspace 1
+    $mod+2 workspace 2
+    $mod+3 workspace 3
+    $mod+4 workspace 4
+    $mod+5 workspace 5
+    $mod+6 workspace 6
+    $mod+7 workspace 7
+    $mod+8 workspace 8
+    $mod+9 workspace 9
+    $mod+0 workspace 10
+    $mod+Shift+1 move container to workspace 1
+    $mod+Shift+2 move container to workspace 2
+    $mod+Shift+3 move container to workspace 3
+    $mod+Shift+4 move container to workspace 4
+    $mod+Shift+5 move container to workspace 5
+    $mod+Shift+6 move container to workspace 6
+    $mod+Shift+7 move container to workspace 7
+    $mod+Shift+8 move container to workspace 8
+    $mod+Shift+9 move container to workspace 9
+    $mod+Shift+0 move container to workspace 10
+
+    $mod+l exec swaylock --color 000000
+
+    $mod+r mode "resize"
+}
+
+# Layout
+bindsym {
+    $mod+b splith
+    $mod+v splitv
+    $mod+s layout stacking
+    $mod+w layout tabbed
+    $mod+e layout toggle split
+    $mod+f fullscreen
+    $mod+Shift+space floating toggle
+    $mod+Shift+f focus mode_toggle
+    $mod+a focus parent
+}
+
+# Screenshots
+bindsym {
+    $mod+Mod1+3 exec grim - | wl-copy -t image/png
+    $mod+Mod1+4 exec grim -g "$(slurp -d)" - | wl-copy -t image/png
+}
+
+# Media
+bindsym {
+    XF86AudioNext exec playerctl next
+    XF86AudioPrev exec playerctl previous
+    XF86AudioPlay exec playerctl play-pause
+    XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+    XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+    XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+}
+
+# Scratchpad
+bindsym {
+    $mod+Shift+minus move scratchpad
+    $mod+minus scratchpad show
+}
+
+mode "resize" {
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+Shift+e exec swaynag \
+  -t warning \
+  -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' \
+  -B 'Yes, exit sway' 'swaymsg exit'
+

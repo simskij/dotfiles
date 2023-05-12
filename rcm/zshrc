@@ -1,0 +1,11 @@
+source ~/.zshrc_aliases
+source <(starship init zsh --print-full-init)
+source <(ssh-agent)
+
+export PATH=$PATH:/home/simme/.spicetify:/snap/bin:/home/simme/.local/bin
+
+HISTSIZE=1000
+SAVEHIST=1000
+HISTFILE=~/.zsh_history
+
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh

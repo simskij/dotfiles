@@ -1,0 +1,102 @@
+{
+  "modules-left": [
+    "sway/workspaces",
+    "idle_inhibitor",
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "pulseaudio",
+    "tray"
+  ],
+  "sway/workspaces": {
+    "disable-scroll": true,
+    "format": " ",
+    "persistent_workspaces": {
+      "1": ["HDMI-A-1"],
+      "2": ["HDMI-A-1"],
+      "3": ["HDMI-A-1"],
+      "4": ["HDMI-A-1"],
+      "5": ["HDMI-A-1"],
+      "6": ["DP-4"],
+      "7": ["DP-4"],
+      "8": ["DP-4"],
+      "9": ["DP-4"],
+      "10": ["DP-4"]
+    },
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
+    },
+    "tooltip": false
+  },
+  "backlight": {
+    "device": "intel_backlight",
+    "on-scroll-up": "light -A 5",
+    "on-scroll-down": "light -U 5",
+    "format": "{icon} {percent}%",
+    "format-icons": ["","","",""]
+  },
+  "pulseaudio": {
+    "scroll-step": 1,
+    "format": "{icon}  {volume}%", 
+    "format-muted": "婢 Muted",
+    "format-icons": {
+      "default": ["", "", ""]
+    },
+    "states": {
+      "warning": 85,
+    },
+    "scroll-step": 1,
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "tooltip": false,
+  },
+  "battery": {
+    "interval": 10,
+    "states": {
+      "warning": 20,
+      "critical": 10
+    },
+    "format": "{icon} {capacity}%",
+    "format-icons": ["", "", "", "", "", "", "", "", ""],
+    "format-full": "{icon} {capacity}%",
+    "format-charging": " {capacity}%"
+  },
+  "clock": {
+   "format": "{:%H:%M}",
+   "format-alt": "{:%A, %B %d, %Y (%R)}",
+  },
+  "memory": {
+    "interval": 1,
+    "format": "﬙ {percentage}%",
+    "states": {
+      "warning": 85,
+    },
+  },
+  "cpu": {
+    "interval": 1,
+    "format": " {usage}%"
+  },
+  "network": {
+    "interval": 1,
+    "format-wifi": "說 {essid}",
+    "format-ethernet": "  {ifname} ({ipaddr})",
+    "format-linked": "說 {essid} (No IP)",
+    "format-disconnected": "說 Disconnected",
+    "tooltip": false
+  },
+  "temperature": {
+    "hwmon-path": "/sys/class/hwmon/hwmon6/temp2_input",
+    //"critical-threshold": 80,
+    "tooltip": false,
+    "format": " {temperatureC}°C"
+  },
+  "tray": {
+    "icon-size": 15,
+    "spacing": 5
+  },
+}

@@ -1,0 +1,33 @@
+# Management 
+alias reload="source ~/.zshrc"
+alias aliases="nvim ~/.zshrc_aliases"
+alias auth="ssh-add ~/.ssh/id_rsa"
+alias relink="rcup -d ~/code/simskij/dotfiles/rcm -v"
+alias dots="cd ~/code/simskij/dotfiles"
+
+# Navigation
+alias ll="ls -la"
+alias ls="exa"
+alias dust="dust --si"
+
+# K8s
+alias k="kubectl"
+alias k9s="k9s --logoless"
+
+# LXD
+alias lxc.nuke="lxc ls -c n --format json | jq -r '.[].name' | xargs lxc rm --force"
+
+# Juju
+alias jj="juju"
+alias jj.w="watch --color juju status --color --relations"
+alias jj.l="juju debug-log"
+
+# Editors
+alias vi="nvim"
+alias vim="nvim"
+alias nano="nvim"
+
+# Tools
+alias speedtest="curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -"
+alias whatsmyip="curl ifconfig.co"
+

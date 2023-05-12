@@ -1,0 +1,6 @@
+gaps outer 0
+gaps left 16
+gaps right 16
+gaps inner 16
+
+default_border none 0
