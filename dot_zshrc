@@ -14,4 +14,8 @@ HISTFILE=~/.zsh_history
 autoload -Uz compinit
 compinit
 
+export NVM_DIR=~/.nvm
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+
 eval "$(starship init zsh)"

@@ -11,17 +11,48 @@ if not vim.loop.fs_stat(lazypath) then
 end
 
 vim.opt.rtp:prepend(lazypath)
+vim.opt.background = "light";
 
 require("lazy")
   .setup({
-    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+    { 'williamboman/mason.nvim' },
+    { 'williamboman/mason-lspconfig.nvim' },
+    { 'catppuccin/nvim', name = "catppuccin", priority = 1000 },
     { 'nvim-lua/plenary.nvim' },
-    { 'nvim-telescope/telescope.nvim', tag = '0.1.5' }
+    { 'nvim-telescope/telescope.nvim', tag = '0.1.5' },
+    { 'nvim-tree/nvim-tree.lua' },
+    { 'nvim-tree/nvim-web-devicons' },
   }, opts)
+
+require('nvim-tree').setup()
+require('mason').setup()
+require('mason-lspconfig').setup({
+  ensure_installed = {
+    "lua_ls",
+	"pylsp",
+	"vimls",
+  }
+})
+
 
 vim.g.mapleader = ';'
 vim.cmd.colorscheme "catppuccin-latte"
 
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+
+
+vim.keymap.set(
+  'i',
+  '<leader><leader>', '<Esc>',
+  { silent = true }
+)
+
+vim.keymap.set(
+  'n',
+  '<leader>pt', "<Cmd>NvimTreeToggle<CR>",
+  { silent = true }
+)
 vim.keymap.set(
   'n',
   '<leader>pp', "<Cmd>lua require'telescope.builtin'.planets{}<CR>",
