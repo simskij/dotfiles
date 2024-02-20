@@ -1,0 +1,26 @@
+{{- if hasKey .chezmoi.osRelease "id" -}}
+{{- if eq .chezmoi.osRelease.id "ubuntu" }}
+
+#!/bin/sh
+
+sudo apt update
+sudo apt install -y \
+  btop \
+  kitty \
+  ripgrep \
+  zsh
+
+which starship > /dev/null || curl -sS https://starship.rs/install.sh | sh
+
+sudo snap install --classic charmcraft
+sudo snap install --classic code
+sudo snap install --classic snapcraft 
+
+sudo snap install juju
+sudo snap install lxd
+
+sudo snap install telegram-desktop
+sudo snap install element-desktop
+
+{{ end }}
+{{ end}}

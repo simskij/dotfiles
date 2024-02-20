@@ -1,0 +1,18 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+
+brew install \
+  1password \
+  1password-cli \
+  google-chrome \
+  kitty \
+  mailspring \
+  mattermost \
+  mudlet \
+  obsidian \
+  ripgrep \
+  spotify \
+  telegram \
+  visual-studio-code
+
+{{ end -}}
