@@ -1,4 +1,6 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+vim.opt.background = "light";
+
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
     "git",
@@ -11,17 +13,26 @@ if not vim.loop.fs_stat(lazypath) then
 end
 
 vim.opt.rtp:prepend(lazypath)
-vim.opt.background = "light";
 
 require("lazy")
   .setup({
     { 'williamboman/mason.nvim' },
     { 'williamboman/mason-lspconfig.nvim' },
+    { 'neovim/nvim-lspconfig' },
+    { 'neovim/nvim-lsp' },
     { 'catppuccin/nvim', name = "catppuccin", priority = 1000 },
     { 'nvim-lua/plenary.nvim' },
     { 'nvim-telescope/telescope.nvim', tag = '0.1.5' },
     { 'nvim-tree/nvim-tree.lua' },
     { 'nvim-tree/nvim-web-devicons' },
+    { 'hrsh7th/cmp-nvim-lua' },
+    { 'hrsh7th/cmp-nvim-lsp' },
+    { 'hrsh7th/cmp-buffer' },
+    { 'hrsh7th/cmp-path' },
+    { 'hrsh7th/cmp-cmdline' },
+    { 'hrsh7th/nvim-cmp' },
+    { 'hrsh7th/cmp-vsnip' },
+    { 'hrsh7th/vim-vsnip' },
   }, opts)
 
 require('nvim-tree').setup()
@@ -29,10 +40,71 @@ require('mason').setup()
 require('mason-lspconfig').setup({
   ensure_installed = {
     "lua_ls",
-	"pylsp",
-	"vimls",
+    "pylsp",
+    "vimls",
   }
 })
+
+local cmp = require('cmp')
+
+cmp.setup({
+  snippet = {
+      expand = function(args)
+          vim.fn["vsnip#anonymous"](args.body)
+      end,
+  },
+  window = {
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
+  },
+  sources = cmp.config.sources({
+    { name = 'nvim_lsp' },
+    { name = 'vsnip' },
+    { name = 'buffer' },
+    { name = 'path' },
+    { name = "nvim_lua" },
+  }),
+  mapping = {
+    ['<Up>'] = cmp.mapping.select_prev_item(select_opts),
+    ['<Down>'] = cmp.mapping.select_next_item(select_opts),
+
+    ['<C-p>'] = cmp.mapping.select_prev_item(select_opts),
+    ['<C-n>'] = cmp.mapping.select_next_item(select_opts),
+
+    ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-d>'] = cmp.mapping.scroll_docs(4),
+
+    ['<C-e>'] = cmp.mapping.abort(),
+    ['<C-y>'] = cmp.mapping.confirm({select = true}),
+    ['<CR>'] = cmp.mapping.confirm({select = false}),
+
+    ['<Tab>'] = cmp.mapping(function(fallback)
+      local col = vim.fn.col('.') - 1
+
+      if cmp.visible() then
+        cmp.select_next_item(select_opts)
+      elseif col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
+        fallback()
+      else
+        cmp.complete()
+      end
+    end, {'i', 's'}),
+
+    ['<S-Tab>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item(select_opts)
+      else
+        fallback()
+      end
+    end, {'i', 's'}),
+  },
+
+})
+
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+require('lspconfig')['pylsp'].setup{ capabilities = capabilities }
+require('lspconfig')['vimls'].setup{ capabilities = capabilities }
 
 
 vim.g.mapleader = ';'
