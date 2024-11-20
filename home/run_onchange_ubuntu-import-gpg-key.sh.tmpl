@@ -1,4 +1,6 @@
 #!/bin/sh
 
+gpg --list-keys 19220CB4C0D65027 2>&1 >/dev/null && exit
+
 op read "op://Private/gpg/private-key" | gpg --import --
 
