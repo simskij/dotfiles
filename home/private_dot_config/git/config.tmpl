@@ -5,7 +5,7 @@
 
 [alias]
     contributors = shortlog --summary --numbered
-    vomit = !git commit -m "$(curl -s http://whatthecommit.com/index.txt)"
+    vomit = !git commit -m "$(curl --silent --fail https://whatthecommit.com/index.txt)"
 
 [branch]
 	autosetuprebase = always
