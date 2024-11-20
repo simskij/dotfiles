@@ -1,0 +1,10 @@
+data:
+  email: simme@arcticbit.se
+
+hooks:
+  read-source-state:
+    pre:
+      command: "{{ .chezmoi.workingTree }}/home/.install-password-manager.sh"
+
+git:
+  autoPush: true

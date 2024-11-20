@@ -1,0 +1,30 @@
+#!/bin/sh
+
+
+which starship > /dev/null || curl -sS https://starship.rs/install.sh | sh
+
+sudo apt update -qq
+
+{{ range .packages.ubuntu.apt.packages -}}
+sudo apt-get install -yqq {{ . | quote }}
+{{ end -}}
+
+{{ range .packages.ubuntu.snap.classic -}}
+sudo snap install --classic {{ . | quote }} > /dev/null
+{{ end -}}
+
+{{ range .packages.ubuntu.snap.confined -}}
+sudo snap install {{ . | quote }} 
+{{ end -}}
+
+which bat > /dev/null || ( \
+    which batcat > /dev/null && \
+	sudo ln -s /usr/bin/batcat /usr/local/bin/bat \
+)
+
+which spicetify || ( \
+    sudo chmod a+wr /usr/share/spotify; \
+    sudo chmod a+wr /usr/share/spotify/Apps -r; \
+    curl -fsSL https://raw.githubusercontent.com/spicetify/cli/main/install.sh | \
+	sh \
+)

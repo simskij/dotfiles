@@ -1,0 +1,26 @@
+# Set up the prompt
+
+setopt histignorealldups sharehistory
+
+# Use emacs keybindings even if our EDITOR is set to vi
+bindkey -e
+
+# Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
+HISTSIZE=1000
+SAVEHIST=1000
+HISTFILE=~/.zsh_history
+
+# Use modern completion system
+autoload -Uz compinit
+compinit
+
+export NVM_DIR=~/.nvm
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+
+
+eval "$(starship init zsh)"
+
+bindkey "^[[1;3C" forward-word
+bindkey "^[[1;3D" backward-word
+
+export PATH=$PATH:/home/simme/.spicetify

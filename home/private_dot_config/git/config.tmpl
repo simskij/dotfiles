@@ -1,0 +1,30 @@
+[user]
+  name = Simon Aronsson
+  email = {{ .email }}
+
+[color]
+  ui = auto
+
+[core]
+  editor = nvim
+  whitespace = trailing-space, space-before-tab
+
+[init]
+  defaultBranch = "main"
+
+[status]
+  submoduleSummary = true
+
+[url "git@github.com:simskij/dotfiles"]
+  insteadOf = https://github.com/simskij/dotfiles
+
+{{- $gh := lookPath "gh" }}
+
+{{- if $gh }}
+[credential "https://github.com"]
+  helper = !{{ $gh }} auth git-credential
+
+[credential "https://gist.github.com"]
+  helper = !{{ $gh }} auth git-credential
+{{- end }}
+{{/* vim: set filetype=gitconfig: */}}

@@ -1,0 +1,36 @@
+packages:
+  ubuntu:
+    apt:
+      packages:
+        - bat
+        - btop
+        - curl
+        - eza
+        - fzf
+        - git
+        - gnupg2
+        - kitty
+        - neovim
+        - neofetch
+        - ripgrep
+        - tmux
+        - zsh
+        - spotify-client
+        - gnome-shell-extension-manager
+        - gnome-tweaks
+        - tailscale
+    snap:
+      classic:
+        - charmcraft
+        - code
+        - snapcraft
+        - telegram-desktop
+        - element-desktop
+        - signal-desktop
+        - mattermost-desktop
+        - discord
+      confined:
+        - gh
+        - juju
+        - lxd
+  
