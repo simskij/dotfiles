@@ -9,12 +9,12 @@ autoload -Uz compinit
 compinit
 
 {{- if lookPath "nvm" }}
-export NVM_DIR=~/.nvm
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+    export NVM_DIR=~/.nvm
+    [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 {{- end }}
 
 if [[ -r "~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh" ]]; then
-  source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+    source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
 
 eval "$(starship init zsh)"
@@ -22,12 +22,27 @@ eval "$(starship init zsh)"
 bindkey "^[[1;3C" forward-word
 bindkey "^[[1;3D" backward-word
 
+alias cm=chezmoi
+alias reload="source ~/.zshrc"
+alias dots="chezmoi cd"
+alias dots.up="chezmoi apply && reload"
+
+{{- if lookPath "nvim" }}
+    alias vi="nvim"
+    alias vim="nvim"
+    alias nano="nvim"
+{{- end }}
+
 {{- if lookPath "batcat" }}
-alias cat=batcat
+    alias cat=batcat
+{{- end }}
+
+{{- if lookPath "dust" }}
+    alias du=dust
 {{- end }}
 
 {{- if lookPath "eza" }}
-alias ls=eza
+    alias ls=eza
 {{- end }}
 
 export PATH=$PATH:/home/simme/.spicetify

@@ -1,34 +1,51 @@
 [user]
-  name = Simon Aronsson
-  email = {{ .email }}
-  signingkey = 19220CB4C0D65027
+    name = Simon Aronsson
+    email = {{ .email }}
+    signingkey = 19220CB4C0D65027
+
+[alias]
+    contributors = shortlog --summary --numbered
+    vomit = !git commit -m "$(curl -s http://whatthecommit.com/index.txt)"
+
+[branch]
+	autosetuprebase = always
 
 [color]
-  ui = auto
+    ui = true 
+	grep = auto
 
 [commit]
-  gpgsign = true
+	gpgsign = true
+	verbose = true
 
 [core]
-  editor = nvim
-  whitespace = trailing-space, space-before-tab
+    editor = nvim
+    whitespace = trailing-space, space-before-tab
+
+[fetch]
+	prune = true
 
 [init]
-  defaultBranch = "main"
+    defaultBranch = "main"
+
+[pull]
+	rebase = true
+
+[push]
+	default = current
 
 [status]
-  submoduleSummary = true
+    submoduleSummary = true
 
 [url "git@github.com:simskij/dotfiles"]
-  insteadOf = https://github.com/simskij/dotfiles
+    insteadOf = https://github.com/simskij/dotfiles
 
 {{- $gh := lookPath "gh" }}
-
 {{- if $gh }}
-[credential "https://github.com"]
-  helper = !{{ $gh }} auth git-credential
-
-[credential "https://gist.github.com"]
-  helper = !{{ $gh }} auth git-credential
+    [credential "https://github.com"]
+        helper = !{{ $gh }} auth git-credential
+    
+    [credential "https://gist.github.com"]
+        helper = !{{ $gh }} auth git-credential
 {{- end }}
 {{/* vim: set filetype=gitconfig: */}}

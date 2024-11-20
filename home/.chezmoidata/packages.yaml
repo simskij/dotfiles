@@ -29,6 +29,7 @@ packages:
         - signal-desktop
         - mattermost-desktop
         - discord
+        - dust
       confined:
         - gh
         - juju
