@@ -17,10 +17,19 @@ compinit
 export NVM_DIR=~/.nvm
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 eval "$(starship init zsh)"
 
 bindkey "^[[1;3C" forward-word
 bindkey "^[[1;3D" backward-word
+
+{{- if lookPath "batcat" }}
+alias cat=batcat
+{{- end }}
+
+{{- if lookPath "eza" }}
+alias ls=eza
+{{- end }}
 
 export PATH=$PATH:/home/simme/.spicetify

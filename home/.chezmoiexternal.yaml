@@ -1,0 +1,4 @@
+".zsh/zsh-autosuggestions": 
+  type: git-repo
+  url: https://github.com/zsh-users/zsh-autosuggestions
+  refreshPeriod: 336h
