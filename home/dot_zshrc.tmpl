@@ -1,23 +1,21 @@
-# Set up the prompt
-
 setopt histignorealldups sharehistory
 
-# Use emacs keybindings even if our EDITOR is set to vi
-bindkey -e
-
-# Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=10000
+SAVEHIST=10000
 HISTFILE=~/.zsh_history
 
 # Use modern completion system
 autoload -Uz compinit
 compinit
 
+{{- if lookPath "nvm" }}
 export NVM_DIR=~/.nvm
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+{{- end }}
 
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+if [[ -r "~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh" ]]; then
+  source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
 
 eval "$(starship init zsh)"
 

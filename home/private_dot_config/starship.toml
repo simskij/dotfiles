@@ -1,0 +1,35 @@
+add_newline = true
+
+[git_branch]
+symbol = "🌱 "
+
+[git_commit]
+disabled = false
+format = "'#[$hash$tag]($style)'"
+style = "white"
+commit_hash_length = 4
+
+[git_status]
+format = '[$all_status$ahead_behind]($style)'
+conflicted = '🏳'
+ahead = '🏎💨'
+behind = '😰'
+diverged = '😵'
+up_to_date = '✓'
+untracked = '🤷'
+stashed = '📦'
+modified = '📝'
+staged = '✨'
+renamed = '👅'
+deleted = '🗑'
+
+[nodejs]
+style = "bright-blue"
+symbol = "  "
+
+[golang]
+symbol = " "
+style = "bold cyan"
+
+[package]
+disabled = true
