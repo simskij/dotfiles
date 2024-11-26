@@ -27,6 +27,8 @@ alias reload="source ~/.zshrc"
 alias dots="chezmoi cd"
 alias dots.up="chezmoi apply && reload"
 
+source "$HOME/.cargo/env"
+
 {{- if lookPath "nvim" }}
     alias vi="nvim"
     alias vim="nvim"
@@ -45,4 +47,4 @@ alias dots.up="chezmoi apply && reload"
     alias ls=eza
 {{- end }}
 
-export PATH=$PATH:/home/simme/.spicetify
+export PATH=$PATH:/home/simme/.spicetify:/home/simme/go/bin
