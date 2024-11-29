@@ -5,7 +5,7 @@
 
 [alias]
 	contributors = shortlog --summary --numbered
-    yolo = !git commit -m \"$(curl --silent --fail https://whatthecommit.com/index.txt)\"
+    yolo = !git add -A && git commit -m \"$(curl --silent --fail https://whatthecommit.com/index.txt)\"
 [branch]
 	autosetuprebase = always
 
