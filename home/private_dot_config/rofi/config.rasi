@@ -1,4 +1,5 @@
 configuration{
+    animation: "layersIn, 1, 8, default, popin 100%";
     modi: "run,drun,window,emoji";
     icon-theme: "Oranchelo";
     show-icons: true;
