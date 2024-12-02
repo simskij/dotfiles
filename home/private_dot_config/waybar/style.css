@@ -1,91 +1,68 @@
 @import "mocha.css";
 
 * {
-    font-family: "Ubuntu Mono Nerd Font";
+    font-family: "Ubuntu ";
     font-size: 16px;
     min-height: 0;
 }
 
 window#waybar {
-    background: transparent;
     background-color: @background;
     color: @foreground;
     transition-property: background-color;
     transition-duration: 0.1s;
 }
 
-#window {
-    margin: 2;
-    padding-left: 8;
-    padding-right: 8;
-}
-
-button {
-    box-shadow: inset 0 -3px transparent;
-    border: none;
-    border-radius: 0;
-}
-
-button:hover {
-    background: inherit;
-    color: @white;
+#workspaces {
+    margin-left: 22px;
+    border-left: 1px solid @surface2;
+    padding-left: 8px;
 }
 
 #workspaces button {
-    padding: 0 4px;
+    padding: 0 4px 0 0;
+    border-bottom: 0;
+    border-top: 0;
 }
 
 #workspaces button.focused {
-    background-color: @lavender;
+    background: @lavender;
     color: @background;
+}
+
+#workspaces button.active {
+    color: @lavender;
 }
 
 #workspaces button.urgent {
     background-color: #eb4d4b;
 }
 
-#pulseaudio,
-#clock,
-#battery,
-#cpu,
-#memory,
-#disk,
-#temperature,
-#backlight,
-#wireplumber,
-#tray,
-#mode,
-#scratchpad {
-    margin: 2px;
-    padding-left: 4px;
-    padding-right: 4px;
+#window {
+    margin-left: 4px;
+    padding-left: 8px;
+    border-left: 1px solid @surface2;
 }
 
 #clock {
     color: @lavender;
 }
 
-#pulseaudio {
-    color: @blue;
+#idle_inhibitor {
+    color: @green;
 }
 
-#idle_inhibitor {
-    margin-right: 12px;
-    color: @green;
+#pulseaudio {
+    color: @subtext1;
+}
+
+#custom-bluetooth {
+    color: @blue;
 }
 
 #idle_inhibitor.activated {
     color: @red;
-}
 
-/* If workspaces is the leftmost module, omit left margin */
-.modules-left>widget:first-child>#workspaces {
-    margin-left: 0;
-}
-
-/* If workspaces is the rightmost module, omit right margin */
-.modules-right>widget:last-child>#workspaces {
-    margin-right: 0;
 }
 
 #custom-vpn.connected {
@@ -93,4 +70,25 @@ button:hover {
 }
 #custom-vpn.disconnected {
     color: @red
+}
+
+#custom-power {
+    margin: 0 22px 0 0;
+}
+
+#tray,
+#pulseaudio {
+    padding: 0 8px 0 0;
+}
+#group-group-power,
+#group-group-tray,
+#clock,
+#idle_inhibitor,
+#custom-notification,
+#custom-bluetooth,
+#custom-vpn,
+#custom-lock,
+#custom-quit,
+#custom-reboot {
+    padding: 0 4px;
 }

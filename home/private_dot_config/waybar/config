@@ -1,31 +1,25 @@
 {
     "height": 32,
     "spacing": 10,
+    
     "modules-left": [
-        "sway/workspaces",
-        "custom/media"
+        "hyprland/workspaces",
+        "hyprland/window"
     ],
     "modules-center": [
         "clock",
     ],
     "modules-right": [
-        "tray",
+        "group/group-tray",
         "idle_inhibitor",
         "custom/vpn",
-        "pulseaudio",
+        "custom/bluetooth",
+        "group/group-audio",
+        "custom/notification",
+        "group/group-power",
     ],
-    "sway/mode": {
+    "hyprland/submap": {
         "format": "<span style=\"italic\">{}</span>"
-    },
-    "sway/scratchpad": {
-        "format": "{icon} {count}",
-        "show-empty": false,
-        "format-icons": [
-            "",
-            ""
-        ],
-        "tooltip": true,
-        "tooltip-format": "{app}: {title}"
     },
     "sway/window": {
         "on-click": "ags -t datemenu",
@@ -39,48 +33,24 @@
         }
     },
     "tray": {
-        "spacing": 10
+        "spacing": 10,
+        "show-passive-items": true,
     },
     "clock": {
         "format": "{:%H:%M:%S}",
         "tooltip-format": "{:%Y/%m/%d}",
         "interval": 1
     },
-    "backlight": {
-        "format": "{icon} {percent}%",
-        "format-icons": [
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-        ]
-    },
-    "battery": {
-        "states": {
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{icon} {capacity}%",
-        "format-charging": " {capacity}%",
-        "format-plugged": " {capacity}%",
-        "format-icons": [
-            "",
-            "",
-            "",
-            "",
-            ""
-        ],
-        "on-click": "ags -t quicksettings"
+    "hyprland/workspaces": {
+      "format": "{icon}",
+      "persistent-workspaces": {
+        "*": 10
+      },
     },
     "pulseaudio": {
         "format": "{icon}  {volume}% {format_source}",
-        "format-bluetooth": " {icon} {volume}% {format_source}",
-        "format-bluetooth-muted": "  {icon} {format_source}",
+        "format-bluetooth": "{icon} {volume}%   {format_source}",
+        "format-bluetooth-muted": "{icon} {format_source}",
         "format-muted": "  {format_source}",
         "format-source": " {volume}%",
         "format-source-muted": "",
@@ -91,14 +61,19 @@
                 ""
             ]
         },
-        "on-click": "pavucontrol"
+        "on-click": "kitty pulsemixer"
     },
     "custom/vpn": {
-        "format": "{} ",
+        "format": "{}",
         "exec": "~/.config/waybar/tailscale.sh",
         "on-click": "~/.config/waybar/tailscale.sh toggle",
         "return-type": "json",
         "interval": 1,
+    },
+    "custom/bluetooth": {
+        "format": "󰂯",
+        "tooltip": "Bluetooth Settings",
+        "on-click": "kitty bluetui"
     },
     "network": {
         "format-wifi": " {essid} ({signalStrength}%)",
@@ -113,5 +88,88 @@
         "tooltip-format-wifi": " {essid} {frequency}MHz\nStrength: {signaldBm}dBm ({signalStrength}%)\nIP: {ipaddr}/{cidr}\n {bandwidthUpBits}  {bandwidthDownBits}",
         "min-length": 17,
         "max-length": 17
-    }
+    },
+    "custom/notification": {
+        "tooltip": false,
+        "format": "{icon}",
+        "format-icons": {
+             "notification": "<span foreground='#f38ba8'><sup></sup></span>",
+             "none": "",
+             "dnd-notification": "<span foreground='#f38ba8'><sup></sup></span>",
+             "dnd-none": "",
+             "inhibited-notification": "<span foreground='#f38ba8'><sup></sup></span>",
+             "inhibited-none": "",
+             "dnd-inhibited-notification": "<span foreground='#f38ba8'><sup></sup></span>",
+             "dnd-inhibited-none": ""
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    },
+    "group/group-audio": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/audio-icon",
+            "pulseaudio"
+        ],
+        "drawer": {
+            "transition-duration": 500,
+            "transition-left-to-right": false
+        }
+    },
+    "group/group-tray": {
+        "orientation": "horizontal",
+        "modules": [
+            "custom/tray-icon",
+            "tray"
+        ],
+        "drawer": {
+            "transition-duration": 500,
+            "transition-left-to-right": false
+        }
+    },
+    "group/group-power": {
+        "orientation": "inherit",
+        "modules": [
+            "custom/power",
+            "custom/quit",
+            "custom/lock",
+            "custom/reboot"
+        ],
+        "drawer": {
+            "transition-duration": 500,
+            "transition-left-to-right": false
+        }
+    },
+    "custom/quit": {
+        "format": "󰗼",
+        "on-click": "hyprctl dispatch exit",
+        "tooltip": false
+    },
+    "custom/lock": {
+        "format": "󰍁",
+        "on-click": "hyprlock",
+        "tooltip": false
+    },
+    "custom/power": {
+        "format": "",
+        "on-click": "systemctl poweroff",
+        "tooltip": false
+    },
+    "custom/reboot": {
+        "format": "󰜉",
+        "on-click": "systemctl reboot",
+        "tooltip": false
+    },
+    "custom/tray-icon": {
+        "format": "",
+        "tooltip": false
+    },
+    "custom/audio-icon": {
+        "format": " ",
+        "tooltip": false
+    },
 }
