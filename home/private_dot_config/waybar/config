@@ -1,6 +1,8 @@
 {
     "height": 32,
-    "spacing": 10,
+    "width": 1920,
+    "margin": 16,
+    "spacing": 0,
     
     "modules-left": [
         "hyprland/workspaces",
@@ -14,9 +16,9 @@
         "idle_inhibitor",
         "custom/vpn",
         "custom/bluetooth",
-        "group/group-audio",
         "custom/notification",
-        "group/group-power",
+        "group/group-audio",
+        "group/group-power"
     ],
     "hyprland/submap": {
         "format": "<span style=\"italic\">{}</span>"
@@ -44,8 +46,16 @@
     "hyprland/workspaces": {
       "format": "{icon}",
       "persistent-workspaces": {
-        "*": 10
+        "*": 6
       },
+      "format-icons": {
+        "1": "",
+        "2": " ",
+        "3": " ",
+        "4": " ",
+        "5": " ",
+        "6": " "
+      }
     },
     "pulseaudio": {
         "format": "{icon}  {volume}% {format_source}",
@@ -60,8 +70,7 @@
                 "",
                 ""
             ]
-        },
-        "on-click": "kitty pulsemixer"
+        }
     },
     "custom/vpn": {
         "format": "{}",
@@ -134,10 +143,10 @@
     "group/group-power": {
         "orientation": "inherit",
         "modules": [
-            "custom/power",
-            "custom/quit",
             "custom/lock",
-            "custom/reboot"
+            "custom/power",
+            "custom/reboot",
+            "custom/quit",
         ],
         "drawer": {
             "transition-duration": 500,
@@ -150,7 +159,7 @@
         "tooltip": false
     },
     "custom/lock": {
-        "format": "󰍁",
+        "format": "󰍁 ",
         "on-click": "hyprlock",
         "tooltip": false
     },
@@ -170,6 +179,7 @@
     },
     "custom/audio-icon": {
         "format": " ",
-        "tooltip": false
-    },
+        "tooltip": false,
+        "on-click": "kitty pulsemixer"
+    }
 }

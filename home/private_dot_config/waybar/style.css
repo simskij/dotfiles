@@ -1,94 +1,111 @@
 @import "mocha.css";
 
 * {
-    font-family: "Ubuntu ";
-    font-size: 16px;
-    min-height: 0;
+  font-family: "UbuntuMono Fira Code";
+  font-size: 16px;
+  min-height: 0;
 }
 
 window#waybar {
-    background-color: @background;
-    color: @foreground;
-    transition-property: background-color;
-    transition-duration: 0.1s;
+  background-color: @background;
+  color: @foreground;
+  transition-property: background-color;
+  transition-duration: 0.1s;
+  border-radius: 8px;
 }
 
 #workspaces {
-    margin-left: 22px;
-    border-left: 1px solid @surface2;
-    padding-left: 8px;
+  margin-left: 4px;
 }
 
 #workspaces button {
-    padding: 0 4px 0 0;
-    border-bottom: 0;
-    border-top: 0;
+  margin: 0;
+  min-width: 24px;
+  padding: 0 4px 0 4px;
+  border-bottom: 0;
+  border-top: 0;
 }
 
 #workspaces button.focused {
-    background: @lavender;
-    color: @background;
+  background: @lavender;
+  color: @background;
 }
 
 #workspaces button.active {
-    color: @lavender;
+  color: @lavender;
 }
 
 #workspaces button.urgent {
-    background-color: #eb4d4b;
+  background-color: #eb4d4b;
 }
 
 #window {
-    margin-left: 4px;
-    padding-left: 8px;
-    border-left: 1px solid @surface2;
+  margin-left: 4px;
+  padding-left: 8px;
+  color: @lavender;
 }
 
 #clock {
-    color: @lavender;
+  color: @lavender;
 }
 
 #idle_inhibitor {
-    color: @green;
+  color: @green;
 }
 
 #pulseaudio {
-    color: @subtext1;
+  color: @subtext1;
 }
 
 #custom-bluetooth {
-    color: @blue;
+  color: @blue;
 }
 
 #idle_inhibitor.activated {
-    color: @red;
-
+  color: @red;
 }
 
 #custom-vpn.connected {
-    color: @green
+  color: @green;
 }
 #custom-vpn.disconnected {
-    color: @red
+  color: @red;
 }
 
+#custom-quit,
+#custom-reboot,
 #custom-power {
-    margin: 0 22px 0 0;
+  padding-right: 16px;
 }
+
+#group-audio {
+  background: #ca9ee6;
+  padding: 0 4px 0 8px;
+  margin: 0;
+}
+#custom-audio-icon, #pulseaudio {
+  color: #1e1e2f;
+}
+
+#group-power {
+  background: #303446;
+  padding: 0 4px 0 14px;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  margin: 0;
+}
+
 
 #tray,
 #pulseaudio {
-    padding: 0 8px 0 0;
+  padding: 0 8px 0 0;
 }
 #group-group-power,
-#group-group-tray,
+#group-tray,
 #clock,
 #idle_inhibitor,
 #custom-notification,
 #custom-bluetooth,
-#custom-vpn,
-#custom-lock,
-#custom-quit,
-#custom-reboot {
-    padding: 0 4px;
+#custom-vpn {
+  padding: 0 16px 0 0;
 }
