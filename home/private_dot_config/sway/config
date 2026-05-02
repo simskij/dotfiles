@@ -1,2 +1,0 @@
-include @sysconfdir/sway/config.d/*
-include ./config.d/*
